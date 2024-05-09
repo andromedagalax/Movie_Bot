@@ -2,7 +2,7 @@
   <img src="https://graph.org/file/2f3bf8cf9d657e60eb985.jpg" alt="FS BOTZ Logo">
 </p>
 <h1 align="center">
-  VJ FILTER BOT
+  FS MOVIE BOT
 </h1>
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Welcome+To+VJ+Filter+Bot!)
