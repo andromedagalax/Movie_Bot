@@ -6,12 +6,12 @@ import secrets
 import time
 import mimetypes
 from aiohttp.http_exceptions import BadStatusLine
-from TechVJ.bot import multi_clients, work_loads, FsBotz
-from TechVJ.server.exceptions import FIleNotFound, InvalidHash
-from TechVJ import StartTime, __version__
-from TechVJ.util.custom_dl import ByteStreamer
-from TechVJ.util.time_format import get_readable_time
-from TechVJ.util.render_template import render_page
+from FsBotz.bot import multi_clients, work_loads, FsBotz
+from FsBotz.server.exceptions import FIleNotFound, InvalidHash
+from FsBotz import StartTime, __version__
+from FsBotz.util.custom_dl import ByteStreamer
+from FsBotz.util.time_format import get_readable_time
+from FsBotz.util.render_template import render_page
 from info import *
 
 
