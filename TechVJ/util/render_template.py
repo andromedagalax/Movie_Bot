@@ -1,6 +1,6 @@
 import jinja2
 from info import *
-from TechVJ.bot import TechVJBot
+from TechVJ.bot import FsBotz
 from TechVJ.util.human_readable import humanbytes
 from TechVJ.util.file_properties import get_file_ids
 from TechVJ.server.exceptions import InvalidHash
@@ -10,8 +10,8 @@ import aiohttp
 
 
 async def render_page(id, secure_hash, src=None):
-    file = await TechVJBot.get_messages(int(LOG_CHANNEL), int(id))
-    file_data = await get_file_ids(TechVJBot, int(LOG_CHANNEL), int(id))
+    file = await FsBotz.get_messages(int(LOG_CHANNEL), int(id))
+    file_data = await get_file_ids(FsBotz, int(LOG_CHANNEL), int(id))
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f"link hash: {secure_hash} - {file_data.unique_id[:6]}")
         logging.debug(f"Invalid hash for message with - ID {id}")
