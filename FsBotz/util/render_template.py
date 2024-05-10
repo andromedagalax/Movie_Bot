@@ -1,9 +1,9 @@
 import jinja2
 from info import *
-from TechVJ.bot import FsBotz
-from TechVJ.util.human_readable import humanbytes
-from TechVJ.util.file_properties import get_file_ids
-from TechVJ.server.exceptions import InvalidHash
+from FsBotz.bot import FsBotz
+from FsBotz.util.human_readable import humanbytes
+from FsBotz.util.file_properties import get_file_ids
+from FsBotz.server.exceptions import InvalidHash
 import urllib.parse
 import logging
 import aiohttp
