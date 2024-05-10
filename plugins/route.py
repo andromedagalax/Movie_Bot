@@ -1,7 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 from aiohttp import web
 import re
 import math
@@ -10,7 +6,7 @@ import secrets
 import time
 import mimetypes
 from aiohttp.http_exceptions import BadStatusLine
-from TechVJ.bot import multi_clients, work_loads, TechVJBot
+from TechVJ.bot import multi_clients, work_loads, FsBotz
 from TechVJ.server.exceptions import FIleNotFound, InvalidHash
 from TechVJ import StartTime, __version__
 from TechVJ.util.custom_dl import ByteStreamer
