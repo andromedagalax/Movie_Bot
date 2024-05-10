@@ -36,14 +36,14 @@ from plugins import web_server
 import asyncio
 from pyromod import listen
 from pyrogram import idle
-from TechVJ.bot import TechVJBot
+from TechVJ.bot import FsBotz
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
 
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
-TechVJBot.start()
+FsBotz.start()
 loop = asyncio.get_event_loop()
 
 
