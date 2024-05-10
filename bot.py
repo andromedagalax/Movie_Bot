@@ -37,6 +37,9 @@ import asyncio
 from pyromod import listen
 from pyrogram import idle
 from TechVJ.bot import FsBotz
+
+
+
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
 
@@ -74,7 +77,7 @@ async def start():
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
-    TechVJBot.username = '@' + me.username
+    FsBotz.username = '@' + me.username
     logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
     logging.info(LOG_STR)
     logging.info(script.LOGO)
@@ -82,7 +85,7 @@ async def start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    await TechVJBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
+    await FsBotz.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
     app = web.AppRunner(await web_server())
     await app.setup()
     bind_address = "0.0.0.0"
