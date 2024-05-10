@@ -53,8 +53,8 @@ loop = asyncio.get_event_loop()
 async def start():
     print('\n')
     print('Initalizing Your Bot')
-    bot_info = await TechVJBot.get_me()
-    TechVJBot.username = bot_info.username
+    bot_info = await FsBotz.get_me()
+    FsBotz.username = bot_info.username
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -73,7 +73,7 @@ async def start():
     temp.BANNED_USERS = b_users
     temp.BANNED_CHATS = b_chats
     await Media.ensure_indexes()
-    me = await TechVJBot.get_me()
+    me = await FsBotz.get_me()
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
