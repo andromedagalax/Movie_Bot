@@ -1,4 +1,12 @@
 from pyrogram import Client, filters
+import os, re, json, base64, logging, random, asyncio
+import time
+from pyrogram import Client, filters, enums
+from pyrogram.errors import ChatAdminRequired, FloodWait
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from info import TOSS, DISE
+from FsBotz.bot import FsBotz
+
 
 # AESTHETIC------------ https://telegram.me/Josprojects ------------ #
 
@@ -13,7 +21,7 @@ def aesthetify(string):
         yield chr(c)
 
 
-@Client.on_message(
+@FsBotz.on_message(
     filters.command(["ae"]))
 async def aesthetic(client, message):
     status_message = await message.reply_text("...")
@@ -26,7 +34,7 @@ DART_E_MOJI = "🎯"
 # EMOJI CONSTANTS
 
 
-@Client.on_message(
+@FsBotz.on_message(
     filters.command(["throw", "dart"])
 )
 async def throw_dart(client, message):
@@ -41,31 +49,33 @@ async def throw_dart(client, message):
         reply_to_message_id=rep_mesg_id
     )
 
-# EMOJI CONSTANTS
-DICE_E_MOJI = "🎲"
-# EMOJI CONSTANTS
+logger = logging.getLogger(__name__)
+BATCH_FILES = {}
 
 
-@Client.on_message(
-    filters.command(["roll", "dice"])
-)
+async def toss(client, message):
+    cap1="ᴛʜɪꜱ ɪꜱ ʏᴏᴜʀ ʀᴇꜱᴜʟᴛ"
+    firos = await message.reply_sticker("CAACAgIAAxkBAAIVrmW44AABninrQsje8r0Nvl-EoJPn0AACvgkAAoSumEoSQwToTbAzsh4E") 
+    time.sleep(3)
+    await message.reply_photo(photo=random.choice(TOSS),caption=cap1)
+    await firos.delete()
+
+cap2="ᴛʜɪꜱ ɪꜱ ʏᴏᴜʀ ꜱᴄᴏʀᴇ"
+@FsBotz.on_message(filters.command("dise")) 
 async def roll_dice(client, message):
-    """ @RollADie """
-    rep_mesg_id = message.message_id
+    rep_mesg_id = message.id
     if message.reply_to_message:
-        rep_mesg_id = message.reply_to_message.message_id
-    await client.send_dice(
-        chat_id=message.chat.id,
-        emoji=DICE_E_MOJI,
-        disable_notification=True,
-        reply_to_message_id=rep_mesg_id
-    )
+        rep_mesg_id = message.reply_to_message.id
+    fs = await query.message.reply_text(f'🎲')
+    await asyncio.sleep(1)
+    await message.reply_photo(photo=random.choice(DISE),caption=cap2)
+    await fs.delete()
 
 # EMOJI CONSTANTS
 TRY_YOUR_LUCK = "🎰"
 # EMOJI CONSTANTS
 
-@Client.on_message(
+@FsBotz.on_message(
     filters.command(["luck", "cownd"])
 )
 async def luck_cownd(client, message):
@@ -85,7 +95,7 @@ async def luck_cownd(client, message):
 GOAL_E_MOJI = "⚽"
 # EMOJI CONSTANTS
 
-@Client.on_message(
+@FsBotz.on_message(
     filters.command(["goal", "shoot"])
 )
 async def roll_dice(client, message):
@@ -139,7 +149,7 @@ RUN_STRINGS = (
 )
 
 
-@Client.on_message(
+@FsBotz.on_message(
     filters.command("runs")
 )
 async def runs(_, message):
