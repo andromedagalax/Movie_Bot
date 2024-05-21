@@ -19,6 +19,8 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
+TOSS=(environ.get('PICS','https://graph.org/file/93fd874d803bc33cfb625.jpg https://graph.org/file/50c74a43b806c2d1bb649.jpg')).split()
+DISE = (environ.get('DISE','https://graph.org/file/d7cd3555848c13b2ff1fe.jpg https://graph.org/file/93a37346e33c834b6f072.jpg https://graph.org/file/164bc7dbb38e8fbbd78db.jpg https://graph.org/file/8af0bb777756c113086bf.jpg https://graph.org/file/a01669dd9aad20ec3e8d1.jpg https://graph.org/file/8075b4ad6419edf5ea550.jpg')).split()
 PICS = (environ.get('PICS' ,'https://graph.org/file/9bc905986578fe468ced6.jpg https://graph.org/file/7230540148a6f704552de.jpg https://graph.org/file/1ef334e3cdfa368fae986.jpg https://graph.org/file/b9ffdf56741dcc5c508a7.jpg https://graph.org/file/a4bef533b0ee8815fc2cb.jpg https://graph.org/file/f11a9552706c0b490682f.jpg https://graph.org/file/2df3277be246d91205b4b.jpg https://graph.org/file/c5cbda8edb3f87c3c2639.jpg https://graph.org/file/a4ac39bb700ad227b090f.jpg https://graph.org/file/1aadf3219407df6a5aa4d.jpg https://graph.org/file/375fe73f23f6c6c099e80.jpg https://graph.org/file/10b80b514219cbded6e9e.jpg https://graph.org/file/a291f637768262bd52f5e.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://te.legra.ph/file/a27dc8fe434e6b846b0f8.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/How_To_Open_Linkl")
@@ -135,5 +137,3 @@ LOG_STR += ("Long IMDB storyline enabled." if LONG_IMDB_DESCRIPTION else "LONG_I
 LOG_STR += ("Spell Check Mode Is Enabled, bot will be suggesting related movies if movie not found\n" if SPELL_CHECK_REPLY else "SPELL_CHECK_REPLY Mode disabled\n")
 LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST_ELM} elements\n" if MAX_LIST_ELM else "Full List of casts and crew will be shown in imdb template, restrict them by adding a value to MAX_LIST_ELM\n")
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
-
-
