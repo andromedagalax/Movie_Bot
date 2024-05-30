@@ -1,5 +1,6 @@
 pyrogram==2.0.106
 pyrofork
+aiogram
 tgcrypto 
 asyncio
 pymongo[srv]==3.12.3 
