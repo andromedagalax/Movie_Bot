@@ -4,12 +4,6 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from random import randint
 from FsBotz.bot import FsBotz
 
-keyboard1 = ReplyKeyboardMarkup(
-    resize_keyboard=True,
-    one_time_keyboard=True,
-    keyboard=[["👋 Hello!", "Channel"]]  # List containing button labels
-)
-
 @FsBotz.message_handler()
 async def kb_answer(message: types.Message):
     if message.text == "👋 Hello!":
