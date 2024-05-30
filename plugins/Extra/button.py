@@ -3,8 +3,9 @@ from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButt
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from random import randint
 from FsBotz.bot import FsBotz
+dp = Dispatcher(FsBotz)
 
-@FsBotz.message_handler()
+@dp.message_handler()
 async def kb_answer(message: types.Message):
     if message.text == "👋 Hello!":
         await message.reply("Hi! How are you?")
