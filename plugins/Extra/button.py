@@ -1,15 +1,15 @@
-from aiogram import Bot, Dispatcher, types
-from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from random import randint
+from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton
 from FsBotz.bot import FsBotz
-dp = Dispatcher(FsBotz)
 
-@dp.message_handler()
-async def kb_answer(message: types.Message):
-    if message.text == "👋 Hello!":
-        await message.reply("Hi! How are you?")
+app = FsBotz# Replace "my_bot_token" with your actual bot token
+
+@app.on_message
+async def handle_message(client, message):
+    if message.text == " Hello!":
+        await message.reply_text("Hi! How are you?")
     elif message.text == "Channel":
-        await message.reply("https://t.me/fs_moviez_channel")
-    else:
-        await message.reply(f"Your message is: {message.text}")
+        channel_link = "https://t.me/fs_moviez_channel"  # Replace with your channel link
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("Join Channel", url=channel_link)]])
+        await message.reply_text("Join our channel!", reply_markup=keyboard)
+
+app.run()
