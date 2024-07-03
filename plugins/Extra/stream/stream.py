@@ -8,11 +8,10 @@ from FsBotz.util.human_readable import humanbytes
 import humanize
 import random
 
-PREMIUM = await db.has_premium_access(message.from_user.id)
 
 @Client.on_message(filters.private & filters.command("stream"))
 async def stream_start(client, message):
-    if PREMIUM == True:
+    if await db.has_premium_access(message.from_user.id):
         if STREAM_MODE == False:
             return 
         msg = await client.ask(message.chat.id, "**Now send me your file/video to get stream and download link**")
@@ -52,3 +51,5 @@ async def stream_start(client, message):
             msg_text = """<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>\n\n<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>\n\n<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>\n\n<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i><a href={}>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></i>\n\n<b> 🖥ᴡᴀᴛᴄʜ  :</b> <i><a href={}>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></i>\n\n<b>🚸 Nᴏᴛᴇ : ʟɪɴᴋ ᴡᴏɴ'ᴛ ᴇxᴘɪʀᴇ ᴛɪʟʟ ɪ ᴅᴇʟᴇᴛᴇ</b>"""
 
             await message.reply_text(text=msg_text.format(get_name(log_msg), humanbytes(get_media_file_size(msg)), download, stream), quote=True, disable_web_page_preview=True, reply_markup=rm)
+    if not await db.has_premium_access(message.from_user.id):
+        return await message.reply("𝕐𝕠𝕦𝕣 𝕟𝕠𝕥 𝕒 𝕡𝕣𝕖𝕞𝕚𝕦𝕞 𝕦𝕤𝕖𝕣 ")
