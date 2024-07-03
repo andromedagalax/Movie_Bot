@@ -64,7 +64,7 @@ OWNER_USERNAME = environ.get('OWNER_USERNAME', 'firossha') # owner username with
 # Links
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/fs_moviez_group')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/fs_moviez_channel')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/How_To_Open_Linkl')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/fs_adv_movie_bot?start=ZmlsZV9CQUFEQlFBRFRCSUFBbWoyS1ZTNU1hakNtT1ZlRmhZRQ')
 VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://t.me/How_To_Open_Linkl')
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'fsmoviebotz') # Support Chat Link Without https:// or @
 
