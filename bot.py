@@ -93,6 +93,14 @@ async def start():
     await idle()
 
 
+#pm send
+@Client.on_message(filters.command('pm') & filters.user(ADMINS))
+async def pm_send(client, message):
+    await message.react(emoji="😁")
+    pm_user =int(await bot.ask(chat_id = message.from_user.id, text = "Now Send Me The User Id"))
+    PM_MESSAGE = await bot.ask(chat_id = message.from_user.id, text = "Now Send Me The Message To Be Send")
+    await FsBotz.send_message(chat_id=pm_user, text=PM_MESSAGE)
+
 if __name__ == '__main__':
     try:
         loop.run_until_complete(start())
